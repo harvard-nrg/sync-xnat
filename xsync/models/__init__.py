@@ -137,8 +137,15 @@ class XNAT:
         url = self.auth.url.rstrip('/')
         url = f'{url}/data/projects/{plabel}/subjects/{slabel}/experiments/{elabel}/scans/{scan.ID}'
         data = dict()
+        remove = [
+            'xnat:mrscandata/image_session_id',
+            'xnat:mrscandata/xnat_imagescandata_id'
+        ]
         for key,value in iter(scan.data_fields.items()):
-            data[f'xnat:mrScandata/{key}'] = value
+            key = f'xnat:mrScandata/{key}'
+            if key.lower() in remove:
+                continue
+            data[key] = value
         logger.info(f'creating {scan.ID}')
         logger.info(f'PUT url={url} data={data}')
         #input('press enter to continue')

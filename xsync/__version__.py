@@ -1,6 +1,6 @@
 __title__ = 'sync-xnat'
 __description__ = 'Pull data from one XNAT into another'
 __url__ = 'https://github.com/harvard-nrg/sync-xnat'
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 __author__ = 'Neuroinformatics Research Group'
 __author_email__ = 'info@neuroinfo.org'
